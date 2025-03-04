@@ -1,32 +1,39 @@
-import React from "react";
+import React from 'react'
+import { twMerge } from 'tailwind-merge'
 
-import CloseIcon from "@/images/close";
-import CircleIcon from "@/images/circle";
+import CircleIcon from '@/images/circle'
+import CloseIcon from '@/images/close'
 
 interface Props {
 	value?: string;
 	onChange?: () => void;
+	player: '1' | '2';
 }
 
-const Cell: React.FC<Props> = ({ value, onChange }) => {
+const Cell: React.FC<Props> = ({ value, onChange, player }) => {
 	return (
 		<div
-			className={`bg-secondary w-[156px] h-[156px] flex items-center justify-center text-7xl rounded-2xl transition-colors ${
-				value === "-" ? "[&>*]opacity-0" : "[&>*]opacity-1"
-			} cursor-pointer select-none ${value === "X" && "bg-player-one"} ${
-				value === "O" && "bg-player-two"
-			} ${value === "-" && "hover:bg-secondary-hover"}`}
+			className={twMerge([
+				'aspect-square flex items-center justify-center text-7xl rounded-2xl transition duration-100 select-none',
+				value === '-'
+					? '[&>*]opacity-0 bg-secondary cursor-pointer hover:bg-secondary-hover'
+					: '[&>*]opacity-1',
+				value === 'O' && 'bg-player-two',
+				value === 'X' && 'bg-player-one',
+				value === '-' && player === '1' && 'hover:bg-player-one/60',
+				value === '-' && player === '2' && 'hover:bg-player-two/60',
+			])}
 			onClick={onChange}
 		>
-			{value === "X" && (
-				<CloseIcon className="fill-[#C65F5A] w-[100px] h-[100px]" />
+			{value === 'X' && (
+				<CloseIcon className="fill-player-one aspect-square w-7/12" />
 			)}
 
-			{value === "O" && (
-				<CircleIcon className="fill-[#669C9E] 	w-[100px] h-[100px]" />
+			{value === 'O' && (
+				<CircleIcon className="fill-player-two aspect-square w-7/12" />
 			)}
 		</div>
-	);
-};
+	)
+}
 
-export default Cell;
+export default Cell

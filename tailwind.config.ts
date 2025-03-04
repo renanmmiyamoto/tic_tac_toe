@@ -9,15 +9,15 @@ const config: Config = {
 	theme: {
 		extend: {
 			backgroundColor: {
-				primary: '#C65F5A',
-				secondary: '#669C9E',
-				"secondary-hover": '#48677A',
-				"player-one": "#FF7B73",
-				"player-two": "#83C8CA",
+				primary: '#0e2a3a',
+				secondary: '#3e5461',
+				'secondary-hover': '#48677A',
+				'player-one': '#FF7B73',
+				'player-two': '#83C8CA',
 			},
 			color: {
-				primary: '#C65F5A',
-				secondary: '#669C9E'
+				'player-one': '#C65F5A',
+				'player-two': '#669C9E',
 			},
 		},
 	},
