@@ -68,14 +68,14 @@ export default function Home() {
 			const newBoard = board.map((row, rowsIndex) =>
 				rowsIndex === rowIndex
 					? row.map((col, colsIndex) =>
-							colsIndex === colIndex
-								? col === "-"
-									? player === "1"
-										? "X"
-										: "O"
-									: col
+						colsIndex === colIndex
+							? col === "-"
+								? player === "1"
+									? "X"
+									: "O"
 								: col
-					  )
+							: col
+					)
 					: row
 			);
 
@@ -99,9 +99,9 @@ export default function Home() {
 			<div className="text-center mb-24 text-3xl flex items-center gap-4 justify-center">
 				Player:{" "}
 				{player === "1" ? (
-					<CloseIcon className="fill-[#C65F5A] w-[30px] h-[30px]" />
+					<CloseIcon className="fill-primary w-[30px] h-[30px]" />
 				) : (
-					<CircleIcon className="fill-[#669C9E] w-[30px] h-[30px]" />
+					<CircleIcon className="fill-secondary w-[30px] h-[30px]" />
 				)}
 			</div>
 
